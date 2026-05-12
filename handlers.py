@@ -198,6 +198,22 @@ async def order_task(msg: Message, state: FSMContext, bot: Bot) -> None:
         log.info("ЗАЯВКА (не доставлена админу):\n%s", summary)
 
 
+
+
+@router.callback_query(F.data == 'booking_info')
+async def cb_booking_info(cb: CallbackQuery) -> None:
+    await _edit_or_send(cb, texts.BOOKING_INFO, kb.back_menu())
+
+
+@router.callback_query(F.data == 'faq_bot_info')
+async def cb_faq_bot_info(cb: CallbackQuery) -> None:
+    await _edit_or_send(cb, texts.FAQ_BOT_INFO, kb.back_menu())
+
+
+@router.callback_query(F.data == 'smart_bot_info')
+async def cb_smart_bot_info(cb: CallbackQuery) -> None:
+    await _edit_or_send(cb, texts.SMART_BOT_INFO, kb.back_menu())
+
 @router.message()
 async def fallback(msg: Message) -> None:
     await msg.answer(texts.UNKNOWN, reply_markup=kb.main_menu())

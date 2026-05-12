@@ -6,17 +6,16 @@ from config import ADMIN_USERNAME, WHATSAPP, EMAIL
 
 def main_menu() -> InlineKeyboardMarkup:
     kb = InlineKeyboardBuilder()
-    kb.button(text="🎯 Бесплатный аудит", callback_data="order")
-    kb.button(text="🧩 Услуги", callback_data="services")
     kb.button(text="🤖 AI-ассистент", callback_data="assistant")
+    kb.button(text="📅 Booking Bot", callback_data="booking_info")
+    kb.button(text="💬 FAQ Bot", callback_data="faq_bot_info")
+    kb.button(text="✨ Smart Bot (2в1)", callback_data="smart_bot_info")
     kb.button(text="📈 Кейсы", callback_data="case:0")
-    kb.button(text="💡 Когда нужно", callback_data="pain")
-    kb.button(text="📊 Результаты", callback_data="results")
-    kb.button(text="⚖️ ИИ vs обычный бот", callback_data="compare")
     kb.button(text="🛠 Как работаем", callback_data="process")
+    kb.button(text="🎯 Бесплатный аудит", callback_data="order")
     kb.button(text="❓ FAQ", callback_data="faq")
     kb.button(text="📞 Контакты", callback_data="contacts")
-    kb.adjust(1, 2, 2, 2, 2, 1)
+    kb.adjust(1, 2, 1, 2, 2, 1)
     return kb.as_markup()
 
 
